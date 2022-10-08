@@ -1,3 +1,4 @@
+# Back story, red herring from a CTF, tried to reverse a js fn.
 def uf(val):
     T3 = val
     I = ''

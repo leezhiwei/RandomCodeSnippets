@@ -1,3 +1,4 @@
+# tried to reverse it, idk if it worked
 import codecs
 import base64
 command = 'print("Hello World")'

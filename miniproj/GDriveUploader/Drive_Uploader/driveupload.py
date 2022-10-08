@@ -1,5 +1,5 @@
 '''
-DriveUpload V1.2.2
+DriveUpload V2.0
 Lee Zhi Wei
 30/8/22
 '''

@@ -1,3 +1,4 @@
+#Hello discord, I did this.
 var = '101'
 num = 988
 if True is True and False is False and '1' is var[0] and int(var) - num == -887:
