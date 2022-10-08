@@ -1,0 +1,5 @@
+A file is used to store data permanently.
+A file can be classified as a text or binary file.
+A file has a name and an extension.
+A file must be opened before it can be accessed.
+A file should be closed immediately after use.

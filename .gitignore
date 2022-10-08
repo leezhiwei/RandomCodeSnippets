@@ -1,0 +1,5 @@
+**/*.swp
+**/*.bin
+**/*.exe
+**/credentials.txt
+**/*.json

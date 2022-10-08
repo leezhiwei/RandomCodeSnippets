@@ -1,0 +1,5 @@
+1. Download the PyDrive module by pip install pydrive in the terminal prompt
+2. Get the client secret json from your google cloud account, rename to client_secrets.json file
+3. Create your zip file
+4. Execute the script, should ask to authenticate (first time only), then will save to credentials.txt in current directory
+5. Will upload Zip File to root of Google Drive
