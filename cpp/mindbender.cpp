@@ -1,3 +1,4 @@
+// Hello discord again with this mindbender
 #include <iostream>
 bool mindbender() {
     bool value = true;
