@@ -1,0 +1,2 @@
+# GRUCTF Programming Challenge
+Hey, I did a CTF, mostly netcat challenges. mathcalc can read equations from netcat then responds with result. mathcalc-grucalc does stuff like area of sphere and stuff. mathcalc-padlock I think also evaluates math stuff too... I forgot.
