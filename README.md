@@ -9,6 +9,7 @@ These pieces are code are just random code that I written out of fun when learni
 4. C# (Will learn it next semester in school.)
 5. SQL (I know some may say its not a programming language but might as well include it here.)
 6. Java (Not started, but learn after C# next semester.)
+7. Rust (More languages)
 
 
 ## Background
