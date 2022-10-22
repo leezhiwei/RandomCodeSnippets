@@ -3,3 +3,4 @@
 **/*.exe
 **/credentials.txt
 **/*.json
+**/*.pdf
