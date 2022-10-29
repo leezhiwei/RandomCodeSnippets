@@ -6,8 +6,8 @@ These pieces are code are just random code that I written out of fun when learni
 1. Python (most proficient)
 2. C (still learning getting hang of it.)
 3. C++ (still don't know how is it better?)
-4. C# (Will learn it next semester in school.)
-5. SQL (I know some may say its not a programming language but might as well include it here.)
+4. C# (In the process of learning from school.)
+5. T-SQL/MySQL (I know some may say its not a programming language but might as well include it here.)
 6. Java (Not started, but learn after C# next semester.)
 7. Rust (More languages)
 
