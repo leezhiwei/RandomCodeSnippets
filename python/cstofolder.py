@@ -24,6 +24,14 @@ else:
     if userinput.upper() == 'Y':
         for dir in list:
             shutil.copyfile(f'{VSProjFolder}\{dir}\{dir}\Program.cs',f'{OutputFolder}\{dir}.cs')
+            dirlist = os.listdir(f'{VSProjFolder}\{dir}\{dir}')
+            for files in dirlist:
+                if '.' in files:
+                    splitted = files.split('.')
+                    if splitted[1] == 'cs':
+                        shutil.copyfile(f'{VSProjFolder}\{dir}\{dir}\{files}',f'{OutputFolder}\{files}')
+                    elif splitted[1] == 'csv':
+                        shutil.copyfile(f'{VSProjFolder}\{dir}\{dir}\{files}',f'{OutputFolder}\{files}')
         print('Done')
     else:
         print("Goodbye")
