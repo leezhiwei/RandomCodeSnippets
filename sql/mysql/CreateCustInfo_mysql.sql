@@ -1,6 +1,8 @@
+SET SQL_SAFE_UPDATES = 0;
+DROP DATABASE IF EXISTS SQLSyntaxTest;
 CREATE DATABASE SQLSyntaxTest; -- create the test database
 USE SQLSyntaxTest; -- use the created database
-CREATE TABLE CustInfo (CustID int not null, Name text not null, Age int not null, IsCitizen bool not null); -- create columns
+CREATE TABLE CustInfo (CustID int not null, Name text not null, Age int not null, IsCitizen bool not null, primary key (CustID)); -- create columns
 INSERT INTO CustInfo VALUES (1,'Dan',17,true),(2,'Mike',16,true),(3,'Micheal',20,false),(4,'Dennis',22,true); -- Insert first value
 SELECT * FROM CustInfo; -- Show initial table with values and columns
 ALTER TABLE CustInfo ADD DidBuyThings BOOL not null DEFAULT true; -- Add new column
