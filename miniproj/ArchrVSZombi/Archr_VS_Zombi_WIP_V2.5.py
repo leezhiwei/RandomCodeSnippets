@@ -218,6 +218,8 @@ def defender_attack(defender_name, field, row, column):
                     damage = random.randint(defenders[defender_name]['min_damage'],defenders[defender_name]['max_damage']) # random damage calc
                     if monkey == 'SKELE': # if monster is skeleton
                         damage = round(damage / 2) # damaged is halfed and rounded
+                        if damage == 0: # if damage is 0 when rounded, set 1
+                            damage = 1
                     HP = int(healthlist[0]) - damage # minus the damage
                     listofrows = ['A','B','C','D','E'] # row list
                     print(f'{defenders[defender_name]["name"]} in lane {listofrows[row]} shoots {monsters[monkey]["name"]} for {damage} damage!') # print status msg
