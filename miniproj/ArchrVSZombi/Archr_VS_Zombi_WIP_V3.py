@@ -443,7 +443,7 @@ def filecheck():
     try:
         file = open('save.txt', 'r') # try and open file in read mode
         file.close() # if found close
-    except FileNotFoundError: # if not found
+    except OSError: # if not found
         return False # return false
     return True # else return True
 
