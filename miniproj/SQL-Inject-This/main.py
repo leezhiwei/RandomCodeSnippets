@@ -13,11 +13,30 @@ if len(listoftables) == 0:
     profilelist = gen.generator()
     for p in profilelist:
         cursor.execute(f"INSERT INTO logindetails VALUES ('{p[0]}', '{gen.passgen()}', 'Name: {p[1]}, Gender: {p[2]}, Address: {p[3]}, Birthday: {p[5]}','{p[4]}')")
-        itemno = random.randint(1,4)
-        for x in range(
-        fakeitem.fakeitemname()
+        for transnum in range(50):
+            itemno = random.randint(1,4)
+            if itemno == 1:
+                item = fakeitem.fakeitemname()
+                cursor.execute(f"INSERT INTO Transactions (Item1,UserID) VALUES ('{item}','{p[0]}');")
+            elif itemno > 1:
+                iteminfo = []
+                for i in range(1,itemno):
+                    itemnameno = f'Item{i}'
+                    item = fakeitem.fakeitemname()
+                    iteminfo.append([itemnameno, item])
+                colname = ''
+                valname = ''
+                for item in iteminfo:
+                    if iteminfo[-1] == item:
+                        colname += item[0]
+                        valname += "'" + item[1] + "'"
+                    else:
+                        colname += item[0] + ', '
+                        valname += "'" + item[1] + "'" + ', '
+                cursor.execute(f"INSERT INTO Transactions ({colname}, UserID) VALUES ({valname}, '{p[0]}') ")
 connection.commit()
 print(connection.execute("SELECT Email, password FROM logindetails").fetchall())
+print(connection.execute("SELECT * FROM Transactions").fetchall())
 sqlinj = flask.Flask(__name__)
 @sqlinj.route('/') 
 def SQLPage():

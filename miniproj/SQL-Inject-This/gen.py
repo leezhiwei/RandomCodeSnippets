@@ -3,7 +3,7 @@ import secrets
 import string
 def generator():
     mprofile = []
-    for _ in range(1,51):
+    for _ in range(1,101):
             profile = faker.Faker().simple_profile()
             uname = profile['username']
             name = profile['name']
