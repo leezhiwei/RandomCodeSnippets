@@ -14,6 +14,7 @@ if len(listoftables) == 0:
     for p in profilelist:
         cursor.execute(f"INSERT INTO logindetails VALUES ('{p[0]}', '{gen.passgen()}', 'Name: {p[1]}, Gender: {p[2]}, Address: {p[3]}, Birthday: {p[5]}','{p[4]}')")
         transnum = random.randint(1,51)
+        print(f'No of Trans {transnum}')
         currenttrans = 0
         while currenttrans < transnum:
             itemno = random.randint(1,4)
@@ -36,6 +37,7 @@ if len(listoftables) == 0:
                         colname += item[0] + ', '
                         valname += "'" + item[1] + "'" + ', '
                 cursor.execute(f"INSERT INTO Transactions ({colname}, UserID) VALUES ({valname}, '{p[0]}') ")
+                print(f'Items {item}')
                 transnum += 1 
 connection.commit()
 print(connection.execute("SELECT Email, password FROM logindetails").fetchall())
