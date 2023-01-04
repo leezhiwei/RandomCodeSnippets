@@ -1,15 +1,23 @@
-import sqlite3
+import pyodbc
 import flask
 import gen
 import urllib
 import fakeitem
 import random
-connection = sqlite3.connect('test.db',check_same_thread=False)
+connection = pyodbc.connect("Driver={ODBC Driver 18 for SQL Server};"
+                      "Server=localhost\SQLServer2022;"
+                      "TrustServerCertificate=Yes;"
+                            "Trusted_Connection=Yes", autocommit=True)
 cursor = connection.cursor()
-listoftables = cursor.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()
+try:
+    cursor.execute("CREATE DATABASE UserTest")
+except:
+    print("Database exists, using existing database.")
+cursor.execute("USE UserTest")
+listoftables = cursor.execute("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE'").fetchall()
 if len(listoftables) == 0:
-    cursor.execute("CREATE TABLE logindetails (UserID VARCHAR PRIMARY KEY, password VARCHAR NOT NULL, UserDesc VARCHAR, Email VARCHAR NOT NULL UNIQUE);")
-    cursor.execute("CREATE TABLE Transactions (TID INTEGER PRIMARY KEY AUTOINCREMENT, Item1 VARCHAR NOT NULL, Item2 VARCHAR, Item3 VARCHAR, Item4 VARCHAR, UserID VARCHAR, FOREIGN KEY(UserID) REFERENCES logindetails(UserID));")
+    cursor.execute("CREATE TABLE logindetails (UserID VARCHAR(1000) PRIMARY KEY, password VARCHAR(MAX) NOT NULL, UserDesc VARCHAR(MAX), Email VARCHAR(1000) NOT NULL UNIQUE);")
+    cursor.execute("CREATE TABLE Transactions (TID INT PRIMARY KEY IDENTITY(1,1), Item1 VARCHAR(MAX) NOT NULL, Item2 VARCHAR(MAX), Item3 VARCHAR(MAX), Item4 VARCHAR(MAX), UserID VARCHAR(1000) FOREIGN KEY REFERENCES logindetails(UserID));")
     profilelist = gen.generator()
     for p in profilelist:
         cursor.execute(f"INSERT INTO logindetails VALUES ('{p[0]}', '{gen.passgen()}', 'Name: {p[1]}, Gender: {p[2]}, Address: {p[3]}, Birthday: {p[5]}','{p[4]}')")
@@ -48,7 +56,8 @@ if len(listoftables) == 0:
                 SQLInsert += valname + ';'
             else:
                 SQLInsert += valname + ', '
-        cursor.execute(SQLInsert)
+        if not(transnum % 1000 == 0):
+            cursor.execute(SQLInsert)
 connection.commit()
 sqlinj = flask.Flask(__name__)
 @sqlinj.route('/') 

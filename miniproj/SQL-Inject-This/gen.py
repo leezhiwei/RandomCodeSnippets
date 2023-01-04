@@ -4,7 +4,7 @@ import string
 def generator():
     multiple = False
     mprofile = []
-    for _ in range(1,10001):
+    for _ in range(1,4001):
         profile = faker.Faker().simple_profile()
         uname = profile['username']
         name = profile['name']
