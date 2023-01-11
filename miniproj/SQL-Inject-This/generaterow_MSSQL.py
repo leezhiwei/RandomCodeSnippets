@@ -11,7 +11,6 @@ cursor = connection.cursor()
 cursor.execute("USE UserTest;")
 listoftables = cursor.execute("SELECT UserID FROM logindetails;").fetchall()
 if True:
-    profilelist = gen.generator()
     for p in listoftables:
         transnum = random.randint(1000,50000)
         print(f'No of Trans {transnum}')
