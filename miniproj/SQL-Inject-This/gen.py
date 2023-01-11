@@ -22,7 +22,11 @@ def birthdaygen():
 def generator():
     multiple = False
     mprofile = []
+<<<<<<< HEAD
     while len(mprofile) < 320:
+=======
+    for _ in range(1,2001):
+>>>>>>> b90f7689031ecc566236c31c7a430f70bc21cc56
         profile = faker.Faker().simple_profile()
         uname = faker.Faker().unique.user_name()
         name = faker.Faker().unique.name()
