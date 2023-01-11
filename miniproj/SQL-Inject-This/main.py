@@ -13,7 +13,7 @@ if len(listoftables) == 0:
     profilelist = gen.generator()
     for p in profilelist:
         cursor.execute(f"INSERT INTO logindetails VALUES ('{p[0]}', '{gen.passgen()}', 'Name: {p[1]}, Gender: {p[2]}, Address: {p[3]}, Birthday: {p[5]}','{p[4]}')")
-        transnum = random.randint(1000,50000)
+        transnum = random.randint(25000,50000)
         print(f'No of Trans {transnum}')
         SQLInsert = 'INSERT INTO Transactions (Item1, Item2, Item3, Item4, UserID) VALUES '
         for _ in range(transnum):
