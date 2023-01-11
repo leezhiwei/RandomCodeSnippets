@@ -48,7 +48,8 @@ if len(listoftables) == 0:
                 SQLInsert += valname + ';'
             else:
                 SQLInsert += valname + ', '
-        cursor.execute(SQLInsert)
+        if not(_%1000==0):
+            cursor.execute(SQLInsert)
 connection.commit()
 sqlinj = flask.Flask(__name__)
 @sqlinj.route('/') 
